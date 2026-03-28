@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abuela Matilde — AOVE Bio · Dossier</title>
+<title>Abuela Matilde — AOVE Bio Premium · Dossier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
@@ -198,7 +198,7 @@
   .dark-band .section-title { color: var(--cream); }
   .dark-band .lead { color: var(--gold-light); border-color: var(--gold); }
 
-  /* ── OLIVE BAND (para sección Matilde) ─────────── */
+  /* ── OLIVE BAND ─────────────────────────────────── */
   .olive-band {
     background: var(--olive);
     color: var(--cream);
@@ -223,6 +223,12 @@
   .olive-band .lead { color: rgba(245,240,230,0.9); border-color: var(--gold-light); }
   .olive-band p { color: rgba(245,240,230,0.75); }
 
+  /* ── PARCHMENT BAND ─────────────────────────────── */
+  .parchment-band {
+    background: var(--parchment);
+    padding: 6rem 2.5rem;
+  }
+
   /* ── FAMILY TREE ────────────────────────────────── */
   .family-tree {
     display: flex;
@@ -230,18 +236,12 @@
     margin: 3rem 0;
     position: relative;
     z-index: 1;
-  }
-
-  .family-tree::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
-    background: rgba(212,175,114,0.25);
+    flex-wrap: wrap;
   }
 
   .family-member {
     flex: 1;
+    min-width: 130px;
     padding: 1.5rem 1rem;
     text-align: center;
     border-right: 1px solid rgba(212,175,114,0.15);
@@ -280,11 +280,89 @@
 
   .member-role {
     font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
     color: rgba(212,175,114,0.6);
     text-transform: uppercase;
     display: block;
+  }
+
+  /* ── PEOPLE GRID (Quesada) ──────────────────────── */
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+
+  .person-card {
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(184,145,74,0.25);
+    text-align: center;
+    background: rgba(245,240,230,0.4);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .person-card:hover {
+    border-color: var(--gold);
+    background: rgba(245,240,230,0.8);
+  }
+
+  .person-card .person-icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .person-card .person-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--earth);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .person-card .person-role {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ── PREMIUM PILLARS ────────────────────────────── */
+  .premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+
+  .premium-card {
+    padding: 2rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(245,240,230,0.06);
+    transition: background 0.3s;
+  }
+
+  .premium-card:hover { background: rgba(245,240,230,0.12); }
+
+  .premium-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .premium-card p {
+    font-size: 0.95rem;
+    color: rgba(245,240,230,0.7);
+    margin: 0;
+    line-height: 1.65;
   }
 
   /* ── STATS GRID ─────────────────────────────────── */
@@ -515,7 +593,6 @@
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .stat-card { border-right: none; border-bottom: 1px solid rgba(184,145,74,0.25); }
     .cover-meta { display: none; }
-    .family-tree { flex-direction: column; }
     .family-member { border-right: none; border-bottom: 1px solid rgba(212,175,114,0.15); }
   }
 
@@ -534,7 +611,7 @@
   <h1 class="cover-title">
     Abuela<br><em>Matilde</em>
   </h1>
-  <div class="cover-subtitle">AOVE Ecológico · Torredonjimeno, Jaén · España</div>
+  <div class="cover-subtitle">AOVE Bio Premium · Torredonjimeno, Jaén · España</div>
   <div class="cover-divider"></div>
   <p class="cover-tagline">
     Un aceite que va un paso más allá de lo ecológico.<br>
@@ -542,7 +619,7 @@
     y la honestidad como filosofía de empresa.
   </p>
   <div class="cover-meta">
-    <span>ENKIRE · José Carpio</span>
+    <span>José Carpio · Fernando Carpio</span>
     <span>CONFIDENCIAL</span>
     <span>Marzo 2026</span>
   </div>
@@ -570,10 +647,9 @@
       </div>
     </div>
 
-    <!-- Árbol familiar simplificado -->
     <div class="family-tree">
       <div class="family-member featured">
-        <span class="member-name">Fernando <em style="font-size:0.75rem; font-style:normal; color:rgba(212,175,114,0.5)">padre</em></span>
+        <span class="member-name">Fernando <span style="font-size:0.7rem; font-style:normal; opacity:0.5">(abuelo)</span></span>
         <span class="member-role">Patriarca · Visionario</span>
       </div>
       <div class="family-member featured">
@@ -606,37 +682,76 @@
 </section>
 
 
-<!-- ══ 02 — ORIGEN ══════════════════════════════════════════════════════ -->
+<!-- ══ 02 — LAS PERSONAS DEL CAMPO ══════════════════════════════════════ -->
 <section class="section reveal">
-  <div class="section-tag">02 · Origen</div>
-  <h2 class="section-title">Un lugar elegido<br><em>desde el Imperio Romano</em></h2>
+  <div class="section-tag">02 · Las Personas del Campo</div>
+  <h2 class="section-title">La familia Quesada<br><em>y Juan Casado de Gesmontes</em></h2>
 
   <p class="lead">
-    Torredonjimeno, en el corazón de la campiña jiennense, aparece señalado en mapas del Vaticano como zona privilegiada para el olivar ya en época romana. No es casualidad: es geografía, es historia, es vocación.
+    Detrás de cada botella de AOVE Bio Premium Abuela Matilde hay personas concretas que dan lo mejor de sí mismas. El campo no se mima solo; se mima con manos, con conocimiento y con vocación.
   </p>
 
   <div class="two-col">
     <div>
-      <p>La familia Carpio-Cañada lleva al menos cuatro generaciones cultivando este mismo suelo. Un olivar de secano en marco tradicional de 14×14 metros, con grandes olivos de dos y tres patas —árboles que acumulan siglos de memoria agrícola— y la variedad Picual en todo su esplendor.</p>
-      <p>La Picual de Jaén no es solo la variedad más plantada del mundo. En su tierra natal, a pleno sol y en suelo arcilloso, alcanza una complejidad organoléptica que pocas regiones pueden igualar: frutado verde intenso, notas a tomate, hierba recién cortada y un amargor y picor que son señal de salud, no de defecto.</p>
+      <p>La familia Quesada es uno de los pilares fundamentales de la empresa agrícola familiar. José Quesada y sus hermanos Paco, Antonio y Luis son los encargados de gestionar el campo día a día. Son quienes conocen cada olivo, quienes deciden el momento exacto de la cosecha, quienes velan por que la aceituna llegue a la almazara en condiciones perfectas.</p>
+      <p>Su trabajo es la base invisible sobre la que descansa toda la calidad del producto. Sin ellos, no hay AOVE Bio Premium Abuela Matilde. Son una pieza fundamental del proyecto y su compromiso con la excelencia en el campo es lo que hace posible la excelencia en la botella.</p>
     </div>
     <div>
-      <p>28 hectáreas de olivos tratados con plena conciencia de lo que significan: no solo un cultivo, sino un patrimonio vivo. La familia, durante décadas en la cooperativa local —varios de sus miembros llegaron a ser directivos— tomó hace seis años la decisión de transicionar completamente a la agricultura ecológica.</p>
-      <p>Una decisión que no fue bienvenida por todos. Pero hoy, algunos de los que entonces criticaron el camino están reconsiderando el suyo.</p>
+      <p>Juan Casado, ingeniero agrónomo de la empresa <strong>Gesmontes</strong> (Córdoba), es el artífice de la gestión ecológica del olivar. Gesmontes es una empresa especializada en la gestión del olivar ecológico y en la producción de productos propios para el cuidado y nutrición del árbol, elaborados en Córdoba con una metodología radicalmente diferente a la convencional.</p>
+      <p>Donde el enfoque tradicional receta productos químicos para tratar síntomas —como ocurre en tantos ámbitos—, Juan trabaja fortaleciendo el árbol desde dentro: el suelo como ecosistema vivo, el árbol como organismo en equilibrio. El aceite como consecuencia natural de ese cuidado profundo.</p>
+    </div>
+  </div>
+
+  <div class="people-grid">
+    <div class="person-card">
+      <span class="person-icon">🌿</span>
+      <span class="person-name">José Quesada</span>
+      <span class="person-role">Gestión del campo</span>
+    </div>
+    <div class="person-card">
+      <span class="person-icon">🌿</span>
+      <span class="person-name">Paco Quesada</span>
+      <span class="person-role">Gestión del campo</span>
+    </div>
+    <div class="person-card">
+      <span class="person-icon">🌿</span>
+      <span class="person-name">Antonio Quesada</span>
+      <span class="person-role">Gestión del campo</span>
+    </div>
+    <div class="person-card">
+      <span class="person-icon">🌿</span>
+      <span class="person-name">Luis Quesada</span>
+      <span class="person-role">Gestión del campo</span>
+    </div>
+    <div class="person-card" style="border-color: rgba(184,145,74,0.4); background: rgba(184,145,74,0.06);">
+      <span class="person-icon">🔬</span>
+      <span class="person-name">Juan Casado</span>
+      <span class="person-role">Agrónomo · Gesmontes · Córdoba</span>
     </div>
   </div>
 </section>
 
 
-<!-- ══ 03 — MÁS ALLÁ DE LO ECOLÓGICO ═══════════════════════════════════ -->
+<!-- ══ 03 — ORIGEN ══════════════════════════════════════════════════════ -->
 <section class="dark-band reveal">
   <div class="section">
-    <div class="section-tag">03 · Filosofía</div>
-    <h2 class="section-title">Un paso más allá<br><em>de lo ecológico</em></h2>
+    <div class="section-tag">03 · Origen</div>
+    <h2 class="section-title">Un lugar elegido<br><em>desde el Imperio Romano</em></h2>
 
     <p class="lead">
-      Certificado ecológico es el punto de partida, no el destino. Lo que hace diferente al olivar de Abuela Matilde es la forma de entender la salud del árbol y del suelo.
+      Torredonjimeno, en el corazón de la campiña jiennense, aparece señalado en mapas del Vaticano como zona privilegiada para el olivar ya en época romana. No es casualidad: es geografía, es historia, es vocación.
     </p>
+
+    <div class="two-col">
+      <div>
+        <p>La familia Carpio-Cañada lleva al menos cuatro generaciones cultivando este mismo suelo. Un olivar de secano en marco tradicional de 12×12 metros, con grandes olivos de dos y tres patas —árboles que acumulan siglos de memoria agrícola— y la variedad Picual en todo su esplendor.</p>
+        <p>Una finca en Torredonjimeno a pocos kilómetros de Córdoba en la que, a kilómetros a la redonda, no hay ninguna empresa contaminante. Solo se ven olivos, como en un inmenso mar verde que cubre la campiña hasta el horizonte.</p>
+      </div>
+      <div>
+        <p>La Picual de Jaén no es solo la variedad más plantada del mundo. En su tierra natal, a pleno sol y en suelo arcilloso, alcanza una complejidad organoléptica que pocas regiones pueden igualar: frutado verde intenso, notas a tomate, hierba recién cortada y un amargor y picor que son señal de salud, no de defecto.</p>
+        <p>28 hectáreas de olivos tratados con plena conciencia de lo que significan: no solo un cultivo, sino un patrimonio vivo. La decisión de transición ecológica, tomada hace seis años, no fue bienvenida por todos. Hoy, algunos de los que entonces criticaron el camino están reconsiderando el suyo.</p>
+      </div>
+    </div>
 
     <div class="stats-grid">
       <div class="stat-card">
@@ -648,24 +763,72 @@
         <span class="stat-label">generaciones agrícolas</span>
       </div>
       <div class="stat-card">
-        <span class="stat-number">6</span>
-        <span class="stat-label">años de transición ecológica</span>
+        <span class="stat-number">12×12</span>
+        <span class="stat-label">marco tradicional (m)</span>
       </div>
       <div class="stat-card">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">aceituna del árbol</span>
+        <span class="stat-number">6</span>
+        <span class="stat-label">años ecológico</span>
       </div>
     </div>
-
-    <p>El ingeniero agrónomo Juan, de la empresa Gesmontes (Córdoba), gestiona el olivar con una metodología propia que se aleja radicalmente del enfoque convencional. Donde otros ven un problema y recetan un producto químico —como en la medicina que trata síntomas sin entender causas— Juan trabaja con preparados orgánicos que fortalecen el árbol desde dentro.</p>
-    <p>El suelo como ecosistema vivo. El árbol como organismo en equilibrio. El aceite como consecuencia natural de ese cuidado. Esta es la filosofía que guía cada decisión en el olivar.</p>
   </div>
 </section>
 
 
-<!-- ══ 04 — EL DÍA DEL BARRO ════════════════════════════════════════════ -->
+<!-- ══ 04 — POR QUÉ PREMIUM ══════════════════════════════════════════════ -->
+<section class="dark-band reveal" style="padding-top: 0;">
+  <div class="section" style="padding-top: 0;">
+    <hr style="border:none; height:1px; background: linear-gradient(to right, transparent, rgba(184,145,74,0.4), transparent); margin-bottom: 4rem;">
+    <div class="section-tag">04 · Por qué Premium</div>
+    <h2 class="section-title">Un aceite que merece<br><em>ser llamado Premium</em></h2>
+
+    <p class="lead">
+      "Premium" no es una etiqueta de marketing. Es el resultado de cada decisión tomada en el campo, en la almazara y en la botella. Estas son las razones por las que el AOVE Bio Premium Abuela Matilde es diferente.
+    </p>
+
+    <div class="premium-grid">
+      <div class="premium-card">
+        <h4>🍂 Cosecha Temprana</h4>
+        <p>Las aceitunas se cosechan entre finales de octubre y principios de noviembre, dependiendo del punto óptimo de maduración de cada campaña. Cosechar en el momento justo es la primera decisión que define la calidad del aceite.</p>
+      </div>
+      <div class="premium-card">
+        <h4>🖐 100% del Árbol · Método Tradicional</h4>
+        <p>Aceituna recolectada por personas mediante el método tradicional con fardos (manteos) y varas, con apoyo de tractores. Sin maquinaria de olivar intensivo o superintensivo. La aceituna llega a la almazara sin golpes, sin tierra, sin barro.</p>
+      </div>
+      <div class="premium-card">
+        <h4>💧 Olivar de Secano · Sin Riego Artificial</h4>
+        <p>Marco tradicional de 12×12 metros. Solo agua de lluvia. El árbol trabaja en condiciones naturales, desarrollando una aceituna de concentración y complejidad que el regadío no puede replicar.</p>
+      </div>
+      <div class="premium-card">
+        <h4>⚡ Del Campo a la Botella en el Mismo Día</h4>
+        <p>El aceite se produce el mismo día de la cosecha y se envasa en la misma fábrica. Procesos mecánicos en frío, a cargo de expertos maestros de almazara. Sin esperas, sin oxidación, sin compromiso.</p>
+      </div>
+      <div class="premium-card">
+        <h4>🌱 Solo Productos Orgánicos · Gesmontes</h4>
+        <p>El olivar se nutre exclusivamente con productos orgánicos elaborados en Córdoba por Gesmontes, empresa especializada en gestión ecológica. Sin química, sin atajos.</p>
+      </div>
+      <div class="premium-card">
+        <h4>❤️ El Cariño de las Personas</h4>
+        <p>Familia Quesada en el campo. Juan Casado en la gestión agronómica. Maestros de almazara en la extracción. Cada persona que interviene en el proceso aporta su conocimiento y su cuidado. Eso no se fabrica: se cultiva.</p>
+      </div>
+    </div>
+
+    <div class="blockquote blockquote--dark" style="margin-top: 3rem;">
+      <p style="color: var(--cream);">Un aceite con fuerza. Ligero tono verdoso. Sabor intenso y textura propia del zumo de aceituna extraído en el punto justo de maduración. Como el buen vino, cuidar la materia prima en todo su proceso da como resultado un aceite de la mejor calidad.</p>
+      <cite>— Los que lo han probado</cite>
+    </div>
+
+    <p style="margin-top: 2rem; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(245,240,230,0.7); text-align: center;">
+      Nuestra meta: ofrecer a las personas el mejor aceite de oliva virgen extra ecológico posible.<br>
+      Traer la filosofía del trabajo bien hecho de nuestros ancestros a nuestros días.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ 05 — EL DÍA DEL BARRO ════════════════════════════════════════════ -->
 <section class="section reveal">
-  <div class="section-tag">04 · La Historia</div>
+  <div class="section-tag">05 · La Historia</div>
   <h2 class="section-title">El día del barro<br><em>y la aceituna premium</em></h2>
 
   <p class="lead">
@@ -677,19 +840,19 @@
 
   <div class="blockquote">
     <p>Si das lo mejor de tu campo y lo mejor de tu cuidado, merece un aceite que lo refleje. No uno que lo diluya.</p>
-    <cite>— José Carpio, cofundador de Abuela Matilde AOVE Bio</cite>
+    <cite>— José Carpio, cofundador de AOVE Bio Premium Abuela Matilde</cite>
   </div>
 
   <p>Ese día nació la idea. Separar nuestras aceitunas. Llevarlas a una almazara de confianza que trabajara con los mismos estándares. Controlar el proceso desde el árbol hasta la botella. Obtener el mejor aceite posible de nuestra aceituna, no el aceite promedio de una mezcla descontrolada.</p>
-  <p>Así nació Abuela Matilde.</p>
+  <p>Así nació el AOVE Bio Premium Abuela Matilde.</p>
 </section>
 
 
-<!-- ══ 05 — DAN WITTING ══════════════════════════════════════════════════ -->
+<!-- ══ 06 — DAN WITTING ══════════════════════════════════════════════════ -->
 <section class="section reveal" style="padding-top: 0;">
   <hr class="hr-gold">
-  <div class="section-tag">05 · El Primer Cliente</div>
-  <h2 class="section-title">De una conversación<br><em>en la Suiza francesa</em></h2>
+  <div class="section-tag">06 · El Primer Cliente</div>
+  <h2 class="section-title">De una conversación<br><em>en Lausana</em></h2>
 
   <p class="lead">
     El mejor aval para un producto premium es que alguien que entiende de mercado, de branding y de calidad apueste por él antes de que exista.
@@ -698,20 +861,20 @@
   <div class="two-col">
     <div>
       <p>Dan Witting es el cofundador de <strong>Baabuk</strong>, una marca internacional de calzado sostenible con presencia en más de 40 países, junto con su esposa Galina. Antes de Baabuk, Dan acumuló más de diez años en marketing para Philip Morris, lo que le dio un olfato agudo para el producto y el posicionamiento.</p>
-      <p>Durante una visita en la región de Suiza francófona, Dan hizo una pregunta directa: <em>"¿Tienen su propio aceite?"</em>. La respuesta era no. Toda la producción familiar iba a la cooperativa. Fue Dan quien vio antes que nosotros el potencial de lo que teníamos.</p>
+      <p>En una conversación en Lausana, Cantón de Vaud (Suiza), Dan hizo una pregunta directa: <em>"¿Tienen su propio aceite?"</em>. La respuesta era no. Toda la producción familiar iba a la cooperativa. Fue Dan quien vio antes que nosotros el potencial de lo que teníamos.</p>
     </div>
     <div>
-      <p>Dan se convirtió en nuestro primer cliente. El primer aceite que produjimos fuera de la cooperativa —siguiendo la tradición de la <em>maquila</em>, el aceite para el consumo propio del productor— fue en gran parte para él. Para su mesa en Suiza.</p>
+      <p>Dan se convirtió en nuestro primer cliente. El primer AOVE Bio Premium Abuela Matilde que produjimos fuera de la cooperativa —siguiendo la tradición de la <em>maquila</em>, el aceite para el consumo propio del productor— fue en gran parte para él. Para su mesa en Suiza.</p>
       <p>Seis años después, Dan sigue siendo cliente. No porque tengamos un contrato, sino porque el aceite habla por sí mismo. Ese es el tipo de fidelidad que construye una marca de verdad.</p>
     </div>
   </div>
 </section>
 
 
-<!-- ══ 06 — EL LEGADO DEL PADRE ═════════════════════════════════════════ -->
+<!-- ══ 07 — EL LEGADO DEL PADRE ═════════════════════════════════════════ -->
 <section class="dark-band reveal">
   <div class="section">
-    <div class="section-tag">06 · Valores Fundacionales</div>
+    <div class="section-tag">07 · Valores Fundacionales</div>
     <h2 class="section-title">Manuel José Carpio Bueno<br><em>El artesano que lo enseñó todo</em></h2>
 
     <p class="lead">
@@ -726,15 +889,15 @@
       <cite>— Manuel José Carpio Bueno, carpintero y agricultor</cite>
     </div>
 
-    <p>Esta frase resume la filosofía de Abuela Matilde. No queremos el cliente de hoy. Queremos el cliente de siempre. Y los hijos de ese cliente. Ese es el modelo de negocio que nuestro padre nos enseñó, y es el que aplicamos a cada botella que sale de Torredonjimeno.</p>
+    <p>Esta frase resume la filosofía del AOVE Bio Premium Abuela Matilde. No queremos el cliente de hoy. Queremos el cliente de siempre. Y los hijos de ese cliente. Ese es el modelo de negocio que nuestro padre nos enseñó, y es el que aplicamos a cada botella que sale de Torredonjimeno.</p>
   </div>
 </section>
 
 
-<!-- ══ 07 — ECOSISTEMA PREMIUM ═══════════════════════════════════════════ -->
+<!-- ══ 08 — ECOSISTEMA PREMIUM ═══════════════════════════════════════════ -->
 <section class="section reveal">
-  <div class="section-tag">07 · Contexto de Mercado</div>
-  <h2 class="section-title">El AOVE premium en el mundo:<br><em>una categoría en expansión</em></h2>
+  <div class="section-tag">08 · Contexto de Mercado</div>
+  <h2 class="section-title">El AOVE Premium en el mundo:<br><em>una categoría en expansión</em></h2>
 
   <p class="lead">
     El aceite de oliva virgen extra de calidad superior ya no es un nicho. Es una categoría de lujo accesible que crece con fuerza en mercados sofisticados. Y el mercado latinoamericano de élite apenas comienza.
@@ -745,11 +908,11 @@
   <div class="market-grid">
     <div class="market-card">
       <h4>🌿 Tendencia Bio & Clean Label</h4>
-      <p>El consumidor premium latinoamericano prioriza la trazabilidad, los ingredientes limpios y el origen verificable. El AOVE ecológico certificado responde exactamente a esa demanda.</p>
+      <p>El consumidor premium latinoamericano prioriza la trazabilidad, los ingredientes limpios y el origen verificable. El AOVE Bio Premium ecológico certificado responde exactamente a esa demanda.</p>
     </div>
     <div class="market-card">
-      <h4>🏆 Mercado de Lujo Accesible</h4>
-      <p>El AOVE premium se posiciona como regalo corporativo, ingrediente de alta gastronomía y símbolo de estilo de vida sofisticado. Precio medio: €15–30 por 500ml en mercado europeo.</p>
+      <h4>🏆 Lujo Accesible</h4>
+      <p>El AOVE Bio Premium se posiciona como regalo corporativo, ingrediente de alta gastronomía y símbolo de estilo de vida sofisticado. Precio medio: €15–30 por 500ml en mercado europeo.</p>
     </div>
     <div class="market-card">
       <h4>📖 Storytelling con Historia Real</h4>
@@ -757,16 +920,16 @@
     </div>
     <div class="market-card">
       <h4>🌎 Ventana Latinoamericana</h4>
-      <p>España y sus productos de calidad gozan de enorme prestigio en Latinoamérica. El AOVE bio artesanal español tiene una oportunidad de posicionamiento equivalente al vino boutique chileno o argentino en Europa.</p>
+      <p>España y sus productos de calidad gozan de enorme prestigio en Latinoamérica. El AOVE Bio Premium artesanal español tiene una oportunidad de posicionamiento equivalente al vino boutique chileno o argentino en Europa.</p>
     </div>
   </div>
 </section>
 
 
-<!-- ══ 08 — TIMELINE ═════════════════════════════════════════════════════ -->
+<!-- ══ 09 — TIMELINE ═════════════════════════════════════════════════════ -->
 <section class="section reveal" style="padding-top: 0;">
   <hr class="hr-gold">
-  <div class="section-tag">08 · Hitos</div>
+  <div class="section-tag">09 · Hitos</div>
   <h2 class="section-title">De la cooperativa<br><em>al mercado internacional</em></h2>
 
   <div class="timeline">
@@ -776,15 +939,15 @@
     </div>
     <div class="timeline-item">
       <div class="timeline-year">~2019 — El día del barro</div>
-      <p class="timeline-text">Una entrega en la cooperativa revela el sinsentido de mezclar aceituna premium con aceituna de baja calidad. Nace la decisión de producir por cuenta propia.</p>
+      <p class="timeline-text">Una entrega en la cooperativa revela el sinsentido de mezclar aceituna premium con aceituna de baja calidad. Nace la decisión de producir por cuenta propia el AOVE Bio Premium Abuela Matilde.</p>
     </div>
     <div class="timeline-item">
       <div class="timeline-year">~2020 — Inicio de la transición ecológica</div>
-      <p class="timeline-text">Matilde y Fernando (padre) abren el camino con su generosidad. La familia acuerda por unanimidad comenzar la conversión al olivar ecológico de la mano de Juan (Gesmontes, Córdoba). Fernando Carpio Cañada y José, hijos de Matilde, lideran el cambio. Comienzan las críticas del entorno. Comienza también el trabajo de verdad.</p>
+      <p class="timeline-text">Matilde y Fernando (padre) abren el camino con su generosidad. La familia acuerda por unanimidad la conversión al olivar ecológico de la mano de Juan Casado (Gesmontes, Córdoba). Fernando Carpio Cañada y José lideran el cambio junto a la familia Quesada en el campo.</p>
     </div>
     <div class="timeline-item">
       <div class="timeline-year">Primer año — La maquila suiza</div>
-      <p class="timeline-text">Dan Witting, emprendedor suizo y fundador de Baabuk, se convierte en el primer cliente. La mayor parte de esa primera producción cruza los Alpes. El boca a boca comienza.</p>
+      <p class="timeline-text">En Lausana, Cantón de Vaud, Dan Witting —emprendedor suizo y cofundador de Baabuk— se convierte en el primer cliente del AOVE Bio Premium Abuela Matilde. La mayor parte de esa primera producción cruza los Alpes. El boca a boca comienza.</p>
     </div>
     <div class="timeline-item">
       <div class="timeline-year">2025–2026 — Desarrollo de marca</div>
@@ -792,26 +955,22 @@
     </div>
     <div class="timeline-item">
       <div class="timeline-year">2026 — Horizonte Latinoamérica</div>
-      <p class="timeline-text">Con base consolidada en Europa, se exploran acuerdos de distribución para mercados de alto valor en Latinoamérica: gastronomía, retail premium, hostelería de lujo y canales especializados.</p>
+      <p class="timeline-text">Con base consolidada en Europa, se exploran acuerdos de distribución del AOVE Bio Premium Abuela Matilde en Latinoamérica: gastronomía, retail premium, hostelería de lujo y canales especializados.</p>
     </div>
   </div>
 </section>
 
 
-<!-- ══ 09 — CTA ══════════════════════════════════════════════════════════ -->
+<!-- ══ 10 — CTA ══════════════════════════════════════════════════════════ -->
 <section class="cta-section reveal">
-  <div class="section-tag" style="justify-content: center; color: var(--gold-light);">09 · Contacto</div>
+  <div class="section-tag" style="justify-content: center; color: var(--gold-light);">10 · Contacto</div>
   <h2 class="section-title">Hablemos sobre<br><em>Abuela Matilde</em></h2>
   <p>Si compartes la visión de que los productos con historia real, origen verificable y calidad honesta merecen llegar más lejos, nos gustaría conocerte. Estamos abiertos a acuerdos de distribución, partnerships estratégicos y colaboraciones en mercados latinoamericanos.</p>
 
   <div class="cta-info">
     <div class="cta-detail">
-      <span class="label">Promotor</span>
-      <span class="value">José Carpio Cañada</span>
-    </div>
-    <div class="cta-detail">
-      <span class="label">Empresa</span>
-      <span class="value">Enkire OÜ · AI & Business Consulting</span>
+      <span class="label">Cofundadores</span>
+      <span class="value">José Carpio · Fernando Carpio</span>
     </div>
     <div class="cta-detail">
       <span class="label">Origen</span>
@@ -820,6 +979,10 @@
     <div class="cta-detail">
       <span class="label">Certificación</span>
       <span class="value">Ecológica · Marca registrada OEPM</span>
+    </div>
+    <div class="cta-detail">
+      <span class="label">Variedad</span>
+      <span class="value">Picual · Cosecha temprana</span>
     </div>
   </div>
 </section>
